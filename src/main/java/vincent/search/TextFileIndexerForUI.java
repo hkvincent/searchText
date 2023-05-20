@@ -88,7 +88,9 @@ public class TextFileIndexerForUI {
                 for (int j = 0; j < frag.length; j++) {
                     if ((frag[j] != null) && (frag[j].getScore() > 0)) {
                         sb.append((i + 1) + ". " + d.get("path") + " score=" + hits[i].score);
-                        sb.append(frag[j].toString());
+                        sb.append(System.lineSeparator());
+                        sb.append("   line number : "+ d.get("lineNumber") + "     " + frag[j].toString());
+                        sb.append(System.lineSeparator());
                         sb.append(System.lineSeparator());
                         System.out.println((i + 1) + ". " + d.get("path") + " score=" + hits[i].score);
                         System.out.println((frag[j].toString()));
@@ -141,7 +143,7 @@ public class TextFileIndexerForUI {
                             doc.add(new TextField("contents", paragraph.toString(), Field.Store.YES));
                             doc.add(new StringField("path", f.getPath(), Field.Store.YES));
                             doc.add(new StringField("filename", f.getName(), Field.Store.YES));
-                            doc.add(new StringField("lineNumber", Integer.toString(lineNumber), Field.Store.YES));
+                            doc.add(new StringField("lineNumber", Integer.toString(lineNumber - 4), Field.Store.YES));
                             writer.addDocument(doc);
 
                             // reset paragraph
