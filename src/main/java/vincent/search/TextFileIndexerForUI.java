@@ -180,6 +180,8 @@ public class TextFileIndexerForUI {
         System.out.println((newNumDocs - originalNumDocs) + " documents added.");
         System.out.println("************************");
 
+        this.closeIndex();
+
         queue.clear();
     }
 
