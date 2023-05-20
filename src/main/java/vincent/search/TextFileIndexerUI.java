@@ -99,7 +99,8 @@ public class TextFileIndexerUI {
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
 
-
+        // Center the JFrame on screen
+        frame.setLocationRelativeTo(null);
         mainPanel.add(searchPanel);
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.add(scrollPane, BorderLayout.SOUTH);
